@@ -12,7 +12,7 @@ const App = () => {
 
 	useEffect(() => {
 		// Fetch events from the server
-		axios.get('http://localhost:5000/api/events')
+		axios.get('https://mern-proj-ghow.onrender.com/api/events')
 			.then(response => setEvents(response.data))
 			.catch(error => console.error(error));
 	}, []);
@@ -24,7 +24,7 @@ const App = () => {
 	const handleEventDelete = (id) => {
 		console.log("delete event " + id)
 		// Delete an event
-		axios.delete(`http://localhost:5000/api/events/${id}`)
+		axios.delete(`https://mern-proj-ghow.onrender.com/api/events${id}`)
 			.then(
 				() =>
 					setEvents(events.filter(event => event._id !== id)))
@@ -49,7 +49,7 @@ const App = () => {
 
 
 		// Update the event in the database
-		axios.put(`http://localhost:5000/api/events/${eventId}`, updatedEvent)
+		axios.put(`https://mern-proj-ghow.onrender.com/api/events${eventId}`, updatedEvent)
 			.then(response => {
 				// console.log('res',response.data);
 
@@ -67,7 +67,7 @@ const App = () => {
 
 	const onEventEdit = (eventId, updatedData) => {
 		// Update the event in the database
-		axios.put(`http://localhost:5000/api/events/${eventId}`, updatedData)
+		axios.put(`https://mern-proj-ghow.onrender.com/api/events${eventId}`, updatedData)
 			.then(response => {
 				// If the update is successful, update the events in the state
 				const updatedEvents = events.map(event =>
